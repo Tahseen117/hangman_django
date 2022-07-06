@@ -1,0 +1,15 @@
+{% load static %}
+
+<img src="{% static art %}" alt="My image"><br>
+{{word}}<br>
+Number of letters in the chosen word: {{blank}}
+<br>
+<form action="/hangman/game">
+    Guess:
+    <input type="text" id="guess" name="guess"><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<a href="{% url 'home' %}">
+<button type="button">Back</button>
+</a>
