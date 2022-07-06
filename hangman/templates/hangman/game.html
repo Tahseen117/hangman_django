@@ -1,5 +1,10 @@
 {% load static %}
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body style="background-color:powderblue;">
+    <h1>HANGMAN</h1>
+
 <img src="{% static art %}" alt="My image"><br>
 {{word}}<br>
 Number of letters in the chosen word: {{blank}}
@@ -13,3 +18,5 @@ Number of letters in the chosen word: {{blank}}
 <a href="{% url 'home' %}">
 <button type="button">Back</button>
 </a>
+
+</body>

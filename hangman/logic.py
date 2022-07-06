@@ -38,6 +38,7 @@ def verify(user_input,cookie):
             cookie +=1
             if cookie == 7:
                 context = {'word': chosen_word, 'blank': display, 'art': f'/hangman/art-{cookie}.png', 'cookie': cookie, 'lost':'lost' }
+                cookie=0
             else:
                 context = {'word': chosen_word, 'blank': display, 'art': f'/hangman/art-{cookie}.png', 'cookie': cookie }
 

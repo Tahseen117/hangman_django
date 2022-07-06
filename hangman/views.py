@@ -19,10 +19,13 @@ def game(request):
         context=verify(user_input,value)
 
         if 'won' in context.keys():
-            return HttpResponse("<h1>You Won</h1>")
+            response = redirect('won')
+            response.delete_cookie('chance')
+            return response
         
         if 'lost' in context.keys():
-            response = HttpResponse("<h1>You LOST</h1>")
+            image_number = context['lost']
+            response = redirect('lose')
             response.delete_cookie('chance')
             return response
 
@@ -34,4 +37,13 @@ def game(request):
         context = logic()
         print("logic called")
     response = render(request, 'hangman/game.html', context)
+    return response
+
+def lose(request):
+    image_number= random.randint(1,3)
+    response = render(request, 'hangman/lose.html', {'image_url': f"/hangman/lose-{image_number}.gif"})
+    return response
+
+def won(request):
+    response = render(request, 'hangman/won.html')
     return response
