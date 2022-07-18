@@ -2,15 +2,16 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<body style="background-color:powderblue;">
+<body style="background-color:powderblue; text-align:center;">
     <h1>HANGMAN</h1>
 
 <img src="{% static art %}" alt="My image"><br>
-{{word}}<br>
-Number of letters in the chosen word: {{blank}}
+{{word}}
+Number of letters in the chosen word:<br> {{blank}}
 <br>
-<form action="/hangman/game">
-    Guess:
+<br>
+<form action="/hangman/game" style="text-align:center;">
+Guess:
     <input type="text" id="guess" name="guess"><br><br>
     <input type="submit" value="Submit">
 </form>

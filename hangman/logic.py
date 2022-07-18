@@ -2,7 +2,7 @@ import random
 from django.shortcuts import render,get_object_or_404
 from .models import Words
 
-key=random.randint(1,2)
+key=random.randint(1,9)
 chosen_word = get_object_or_404(Words, pk=key)
 print(f"chosen by main code {str(chosen_word)}")
 display = []
@@ -26,7 +26,7 @@ def verify(user_input,cookie):
     found=0
     if "_" in display:
         for i in range(len(str(chosen_word))):
-            if str(chosen_word)[i] == user_input[0]:
+            if str(chosen_word)[i].lower() == user_input[0].lower():
                 display[i] = str(chosen_word)[i]
                 found=1
         if found==1:
@@ -44,5 +44,5 @@ def verify(user_input,cookie):
 
         return context
     else:
-        context = 'won'
+        context = context = {'word': chosen_word, 'blank': display, 'art': f'/hangman/art-{cookie}.png', 'cookie': cookie, 'won':'won' }
         return context
